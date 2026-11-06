@@ -6,9 +6,11 @@ class MovieCard extends StatelessWidget {
   const new({
     super.key,
     required this.movie,
+    this.isDetails = false,
   });
 
   final Movie movie;
+  final bool isDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -51,17 +53,20 @@ class MovieCard extends StatelessWidget {
                   ]
                 )
               ),
-              TextButton(
-                onPressed: () => 
-                  Navigator.push(
-                    context, 
-                    MaterialPageRoute(
-                      builder: (context) => MovieDetailsPage(movie: movie)
+              isDetails
+                  ? const Text('')
+                  : TextButton(
+                      onPressed: () => 
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsPage(movie: movie)
+                          )
+                        ),
+                      child: const Text('Read More'),
                     )
-                  ),
-                child: const Text('Read More'),
-              )
-            ],)
+              ],
+            )
           )
         ],
       ),

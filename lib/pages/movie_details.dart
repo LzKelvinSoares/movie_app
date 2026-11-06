@@ -16,7 +16,7 @@ class MovieDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            MovieCard(movie: movie),
+            MovieCard(movie: movie, isDetails: true),
             Text(
               'Movie Posters', 
               style: Theme.of(context).
